@@ -15,6 +15,9 @@ class DatabaseHandling:
     def __init__(self):
         super().__init__()
 
+        # Name of file for testing
+        testing_database = 'December2020'
+
         # Name for file
         date = month_and_year()
 
@@ -29,7 +32,7 @@ class DatabaseHandling:
 
         # Creating database for current month
         # === SQLite3 Components ===
-        self.connection = sqlite3.connect(month_and_year() +'.db')
+        self.connection = sqlite3.connect(testing_database +'.db')
         self.cursor = self.connection.cursor()
         # ==========================
 
