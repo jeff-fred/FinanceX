@@ -32,7 +32,7 @@
    <string>Remove Transaction</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QListWidget" name="currentTransList">
+   <widget class="QListView" name="currentTransList">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -45,7 +45,7 @@
      <string notr="true">font: 75 12pt &quot;Courier&quot;;</string>
     </property>
    </widget>
-   <widget class="QListWidget" name="removalTransList">
+   <widget class="QListView" name="removalTransList">
     <property name="geometry">
      <rect>
       <x>350</x>
