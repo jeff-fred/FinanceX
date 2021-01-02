@@ -73,14 +73,8 @@ class RemoveTransactionWindow(QMainWindow):
         self.cancelButton = windowUI.cancelRemovalButton
         self.currentList = windowUI.currentTransList
         self.removalList = windowUI.removalTransList
-        self.widget_setup()
 
         self.load_list_data(tableName)
-
-
-    # Widget connection setup
-    def widget_setup(self):
-        self.removeButton.clicked.connect(self.removal)
 
 
     # Fill CURRENT list with tableName data
@@ -92,15 +86,6 @@ class RemoveTransactionWindow(QMainWindow):
             self.currentList.addItem(QListWidgetItem(str(data[row])))
             row += 1
         
-
-    # Function for removal button
-    def removal(self):
-        the_object = self.currentList.selectedItems()
-        
-        object_methods = [method_name for method_name in dir(the_object)
-                  if callable(getattr(the_object, method_name))]
-        print(object_methods)
-        the_object.pop()
 
 class AddTransactionWindow(QMainWindow):
     ''' GUI to allow user to input a new transaction. '''
