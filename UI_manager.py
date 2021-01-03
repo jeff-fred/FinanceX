@@ -5,7 +5,7 @@ import sys, os
 
 from data_manager import DatabaseHandling
 
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtGui
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtWidgets import QTableWidgetItem, QListWidgetItem
 
@@ -23,20 +23,18 @@ class MainWindow(QMainWindow):
         # WIDGET CONTROLLING VARIABLES
         self.incomeAddButton = windowUI.addIncomeButton
         self.incomeRemoveButton = windowUI.removeIncomeButton
-        self.incomeTable = windowUI.incomeTable
         self.expenseAddButton = windowUI.addExpenseButton
         self.expenseRemoveButton = windowUI.removeExpenseButton
         self.expenseTable = windowUI.expensesTable
+        self.incomeTable = windowUI.incomeTable
 
-        self.setup_tables()
         
-
-    # MainWindow table setup
-    def setup_tables(self):
         self.resize_table(self.incomeTable)
         self.resize_table(self.expenseTable)
+        
         self.load_data(self.incomeTable, db.return_all('Income'))
         self.load_data(self.expenseTable, db.return_all('Expenses'))
+
         
 
     # Resize table columns > None
@@ -71,21 +69,56 @@ class RemoveTransactionWindow(QMainWindow):
         self.keepButton = windowUI.keepPullButton
         self.confirmButton = windowUI.confirmRemovalButton
         self.cancelButton = windowUI.cancelRemovalButton
-        self.currentList = windowUI.currentTransList
-        self.removalList = windowUI.removalTransList
+        self.currentTable = windowUI.currentTransTable
+        self.removalTable = windowUI.remTransTable
 
-        self.load_list_data(tableName)
+        self.widget_setup()
+
+        self.resize_table(self.currentTable)
+        self.resize_table(self.removalTable)
+        self.load_data(self.currentTable, db.return_all(tableName))
+
+    
+    # Widget connection
+    def widget_setup(self):
+        self.cancelButton.clicked.connect(self.hide)
+        self.confirmButton.clicked.connect(self.confirm_removal)
+        self.removeButton.clicked.connect(self.removal_move)
+        self.keepButton.clicked.connect(self.keep_move)
 
 
-    # Fill CURRENT list with tableName data
-    def load_list_data(self, tableName):
-        data = db.return_all(tableName)
-       
+    # Move selected widgets to removal table > None
+    def removal_move(self):
+        pass
+        
+
+    # Move selected widgets back to current trans table > None     
+    def keep_move(self):
+        pass
+
+
+    # Remove from MAIN table and exit window
+    def confirm_removal(self):
+        pass
+    
+
+    # Resize table columns > None
+    def resize_table(self, tableObject):
+        tableObject.setColumnWidth(0, 40) 
+        tableObject.setColumnWidth(1, 70)
+        tableObject.setColumnWidth(2, 118)
+
+
+    # Load tables with correct data > None
+    def load_data(self, tableObject, data):
+        tableObject.setRowCount(len(data))
         row = 0
         for i in data:
-            self.currentList.addItem(QListWidgetItem(str(data[row])))
+            tableObject.setItem(row, 0, QTableWidgetItem(str(data[row][0])))
+            tableObject.setItem(row, 1, QTableWidgetItem(str(data[row][2])))
+            tableObject.setItem(row, 2, QTableWidgetItem(str(data[row][3])))
             row += 1
-        
+
 
 class AddTransactionWindow(QMainWindow):
     ''' GUI to allow user to input a new transaction. '''
