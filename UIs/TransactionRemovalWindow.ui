@@ -32,7 +32,7 @@
    <string>Remove Transaction</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QListView" name="currentTransList">
+   <widget class="QTableWidget" name="currentTransList">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -41,11 +41,32 @@
       <height>291</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>231</width>
+      <height>0</height>
+     </size>
+    </property>
     <property name="styleSheet">
      <string notr="true">font: 75 12pt &quot;Courier&quot;;</string>
     </property>
+    <column>
+     <property name="text">
+      <string>ID</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Type</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Amount</string>
+     </property>
+    </column>
    </widget>
-   <widget class="QListView" name="removalTransList">
+   <widget class="QTableWidget" name="removalTransList">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -54,6 +75,24 @@
       <height>291</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 12pt &quot;Courier&quot;;</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>ID</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Type</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Amount</string>
+     </property>
+    </column>
    </widget>
    <widget class="QPushButton" name="removePushButton">
     <property name="geometry">
@@ -85,7 +124,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>150</y>
+      <y>250</y>
       <width>91</width>
       <height>31</height>
      </rect>
