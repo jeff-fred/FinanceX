@@ -32,7 +32,7 @@
    <string>Remove Transaction</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableWidget" name="currentTransList">
+   <widget class="QTableWidget" name="currentTransTable">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -50,6 +50,24 @@
     <property name="styleSheet">
      <string notr="true">font: 75 12pt &quot;Courier&quot;;</string>
     </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
     <column>
      <property name="text">
       <string>ID</string>
@@ -66,7 +84,7 @@
      </property>
     </column>
    </widget>
-   <widget class="QTableWidget" name="removalTransList">
+   <widget class="QTableWidget" name="remTransTable">
     <property name="geometry">
      <rect>
       <x>350</x>
@@ -78,6 +96,27 @@
     <property name="styleSheet">
      <string notr="true">font: 75 12pt &quot;Courier&quot;;</string>
     </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>false</bool>
+    </property>
+    <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="verticalHeaderHighlightSections">
+     <bool>false</bool>
+    </attribute>
     <column>
      <property name="text">
       <string>ID</string>
