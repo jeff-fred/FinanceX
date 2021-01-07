@@ -13,12 +13,13 @@ from PyQt5.QtWidgets import QTableWidgetItem
 
 
 if __name__ == '__main__':
-    # Application creation 
+    # Application creation   
     application = QApplication(sys.argv)
 
     # Window Objects
     mainWindow = MainWindow()
-    incomeRemWindow = RemoveTransactionWindow('Income')
+    
+    incomeRemWindow = RemoveTransactionWindow('Income')  
     expensesRemWindow = RemoveTransactionWindow('Expenses')
 
     mainWindow.incomeRemoveButton.clicked.connect(incomeRemWindow.show)
