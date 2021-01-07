@@ -2,6 +2,7 @@
 
 # Imports
 import sqlite3, datetime, os
+from PyQt5.QtWidgets import QTableWidgetItem
 
 
 
@@ -10,6 +11,9 @@ def month_and_year():
     return datetime.date.today().strftime('%B%Y')
 
 
+
+
+# Creates and manages the database
 class DatabaseHandling:
     ''' Control and modification functions of the database. '''
     def __init__(self):
@@ -97,4 +101,25 @@ class DatabaseHandling:
             return sum([i[0] for i in self.cursor.fetchall()])
 
  
- 
+
+# Creation of usable widget items
+class Transaction(QTableWidgetItem):
+    def __init__(self, transID, transDate, transType, transAmount):
+        super().__init__()
+
+        self.transID = transID
+        self.transDate = transDate
+        self.transType = transType
+        self.transAmount = transAmount
+
+    def get_id(self):
+        return QTableWidgetItem(str(self.transID))
+
+    def get_date(self):
+        return QTableWidgetItem(str(self.transDate))
+
+    def get_type(self):
+        return QTableWidgetItem(str(self.transType))
+
+    def get_amount(self):
+        return QTableWidgetItem(str(self.transAmount))
