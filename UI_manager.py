@@ -1,18 +1,19 @@
 ''' Object to control all UI useful functions. '''
 
 # Imports 
-import sys, os
+import sys, os, datetime, calendar
 
 from data_manager import DatabaseHandling
 from data_manager import Transaction
 
-from PyQt5 import QtWidgets, uic, QtGui
+from PyQt5 import QtWidgets, uic, QtGui, QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtWidgets import QListWidgetItem, QAbstractItemView
 
 
 # Database Initialization to use with windows
 db = DatabaseHandling()
+
 
 class MainWindow(QMainWindow):
     ''' Control of MAIN window of program. '''
@@ -178,6 +179,43 @@ class AddTransactionWindow(QMainWindow):
 
         windowUI = uic.loadUi('UIs/TransactionAdditionWindow.ui', self)
 
-        # Widgets
+        self.tableName = tableName
+
+        # UI Widgets
+        self.addButton = windowUI.addTransactionButton
+        self.refreshButton = windowUI.refreshTableButton
+        self.clearButton = windowUI.clearWidgetsButton
         self.cancelButton = windowUI.cancelButton
-        self.cancelButton.clicked.connect(self.hide)
+        self.transTable = windowUI.allTransTable
+        self.dateWidget = windowUI.dateEdit
+        self.typeWidget = windowUI.typeComboBox
+        self.amountWidget = windowUI.amountSpinBox
+        self.widget_setup()
+        
+
+
+    # Setup widgets
+    def widget_setup(self):
+        self.cancelButton.clicked.connect(self.close)
+        self.addButton.clicked.connect(self.add_action)
+
+        self.transTable.setColumnWidth(0, 20)
+        self.transTable.setColumnWidth(1, 60)
+        self.transTable.setColumnWidth(2, 70)
+        self.transTable.setColumnWidth(3, 80)
+
+        month = int(datetime.date.today().strftime('%m'))
+        year = int(datetime.date.today().strftime('%Y'))
+        lastDayOfMonth = calendar.monthrange(year, month)[1]
+        minDate = QtCore.QDate(year, month, 1)
+        maxDate = QtCore.QDate(year, month, lastDayOfMonth)
+        self.dateWidget.setMinimumDate(minDate)
+        self.dateWidget.setMaximumDate(maxDate)
+
+        self.transTable.setSelectionMode(QAbstractItemView.SelectionMode(1))
+        self.transTable.setSelectionBehavior(QAbstractItemView.SelectionBehavior(1))
+
+    
+    # Add to transaction table
+    def add_action(self):
+        pass
