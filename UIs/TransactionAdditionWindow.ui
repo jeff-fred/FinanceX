@@ -108,7 +108,7 @@
      <string>CANCEL</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="refreshWindowButton">
+   <widget class="QPushButton" name="refreshTableButton">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -157,7 +157,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
+      <y>30</y>
       <width>231</width>
       <height>301</height>
      </rect>
@@ -165,6 +165,141 @@
     <property name="title">
      <string>Add Transaction</string>
     </property>
+    <widget class="QDateEdit" name="dateEdit">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>30</y>
+       <width>110</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="currentSection">
+      <enum>QDateTimeEdit::DaySection</enum>
+     </property>
+     <property name="calendarPopup">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>25</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Date:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Type:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="typeComboBox">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>90</y>
+       <width>111</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <item>
+      <property name="text">
+       <string>CREDIT</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>FUN</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>INV</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>NEED</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>OTHER</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>WORK</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QDoubleSpinBox" name="amountSpinBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>150</y>
+       <width>141</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <double>100000.990000000005239</double>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>140</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Amount:</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
