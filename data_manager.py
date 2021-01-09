@@ -1,7 +1,7 @@
 ''' Data handling and management of formats, table, and results. '''
 
 # Imports
-import sqlite3, datetime, os
+import sqlite3, datetime, os, calendar
 from PyQt5.QtWidgets import QTableWidgetItem
 
 
@@ -9,8 +9,6 @@ from PyQt5.QtWidgets import QTableWidgetItem
 # Returns {month}{year} as a STRING
 def month_and_year():
     return datetime.date.today().strftime('%B%Y')
-
-
 
 
 # Creates and manages the database
