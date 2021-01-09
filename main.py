@@ -28,6 +28,7 @@ if __name__ == '__main__':
     mainWindow.incomeRemoveButton.clicked.connect(incomeRemWindow.show)
     mainWindow.expenseRemoveButton.clicked.connect(expensesRemWindow.show)
     mainWindow.addIncomeButton.clicked.connect(incomeAddWindow.show)
+    mainWindow.expenseAddButton.clicked.connect(expensesAddWindow.show)
 
     mainWindow.show()
     sys.exit(application.exec_())
