@@ -22,8 +22,12 @@ if __name__ == '__main__':
     incomeRemWindow = RemoveTransactionWindow('Income')  
     expensesRemWindow = RemoveTransactionWindow('Expenses')
 
+    incomeAddWindow = AddTransactionWindow('Income')
+    expensesAddWindow = AddTransactionWindow('Expenses')
+
     mainWindow.incomeRemoveButton.clicked.connect(incomeRemWindow.show)
     mainWindow.expenseRemoveButton.clicked.connect(expensesRemWindow.show)
+    mainWindow.addIncomeButton.clicked.connect(incomeAddWindow.show)
 
     mainWindow.show()
     sys.exit(application.exec_())
